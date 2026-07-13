@@ -415,13 +415,6 @@ drm_bridge_chain_mode_valid(struct drm_bridge *bridge,
 }
 EXPORT_SYMBOL(drm_bridge_chain_mode_valid);
 
-void drm_bridge_disp_param_set(struct drm_bridge *bridge, int cmd)
-{
-	if (!bridge)
-		return;
-	printk("[bruce] into kernel/msm-kernel\n");
-	drm_bridge_disp_param_set(bridge->next, cmd);
-
 	if (bridge->funcs->disp_param_set)
 		bridge->funcs->disp_param_set(bridge, cmd);
 }
